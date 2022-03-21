@@ -1,1 +1,1 @@
-# IT Academy - Fundamentos de la Programación
+# IT Academy - Fundamentos de la Programación (JavaScript)
