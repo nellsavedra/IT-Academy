@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<title>M04 Exercici 06</title>
+</head>
+<body>
+	<div class="container mt-5 text-center" style="max-width:960px">
+		<h1>M04 Exercici 06</h1>
+		<hr class="mb-5">
+		<p class="fw-bold">Resultado:</p>
+		<p id="demo" class="mt-3 mb-5 fs-1 fw-lighter"></p>
+		<div class="row">
+			<div class="col-6 text-center m-auto">
+				<div class="mb-3 form-floating">
+					<input class="form-control" id="bdday" placeholder="Ejemplo: 30">
+					<label for="">Dia del mes</label>
+				</div>
+				<div class="mb-3 form-floating">
+					<input class="form-control" id="bdmonth" placeholder="Ejemplo: 12">
+					<label for="">Mes del año</label>
+				</div>
+				<div class="col-12 text-center">
+					<button class="btn btn-primary" onclick="calcSign()">Enviar</button>
+				</div>
+				
+			</div>
+		</div>
+		<script>
+
+			// Fer un programa que demani a l’usuari quin dia i quin mes va néixer, amb aquesta informació el programa mostra per pantalla, de quin signe del zodíac és.
+			// Aquari-Acuario (20.01 — 18.02)
+			// Peixos-Piscis (19.02 — 20.03)
+			// Àries-Aries (21.03 — 19.04)
+			// Taure-Tauro (20.04 — 20.05)
+			// Bessons-Géminis (21.05 — 20.06)
+			// Cranc-Cáncer (21.06 — 22.07)
+			// LLeó-Leo (23.07 — 22.08)
+			// Verge-Virgo (23.08 — 22.09)
+			// Balança-Libra (23.09 — 22.10)
+			// Escorpi-Escorpio (23.10 — 21.11)
+			// Sagitario-Sagitario (22.11 — 21.12)
+			// Capricorn-Capricornio (22.12 — 19.01)
+
+			function calcSign() {
+			let bdDay = Number(document.getElementById("bdday").value);
+			let bdMonth = Number(document.getElementById("bdmonth").value);
+			let resultado;
+
+			switch(bdMonth) {
+				case 1:
+					bdDay >= 20 ? resultado = "Acuario" : resultado = "Capricornio";
+					break;
+				case 2:
+					bdDay >= 19 ? resultado = "Piscis" : resultado = "Acuario";
+					break;
+				case 3:
+					bdDay >= 21 ? resultado = "Aries" : resultado = "Piscis";
+					break;
+				case 4:
+					bdDay >= 20 ? resultado = "Tauro" : resultado = "Aries";
+					break;
+				case 5:
+					bdDay >= 21 ? resultado = "Geminis" : resultado = "Tauro";
+					break;
+				case 6:
+					bdDay >= 21 ? resultado = "Cancer" : resultado = "Geminis";
+					break;
+				case 7:
+					bdDay >= 23 ? resultado = "Leo" : resultado = "Cancer";
+					break;
+				case 8:
+					bdDay >= 23 ? resultado = "Virgo" : resultado = "Leo";
+					break;
+				case 9:
+					bdDay >= 23 ? resultado = "Libra" : resultado = "Virgo";
+					break;
+				case 10:
+					bdDay >= 23 ? resultado = "Escorpio" : resultado = "Libra";
+					break;
+				case 11:
+					bdDay >= 22 ? resultado = "Sagitario" : resultado = "Escorpio";
+					break;
+				case 12:
+					bdDay >= 22 ? resultado = "Capricornio" : resultado = "Sagitario";
+					break;
+				default: resultado = "Imposible calcular con los datos introducidos";
+			}
+
+			if(bdDay == 0) {
+				resultado = "Imposible calcular con los datos introducidos";
+			}
+			
+			document.getElementById("demo").innerHTML = resultado;
+		}
+		</script>
+	</div>
+</body>
+</html>
