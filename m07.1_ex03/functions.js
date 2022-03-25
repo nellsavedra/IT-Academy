@@ -7,8 +7,8 @@ let esPar = () => {
 	if(number % 2 == 0) {
 		message = `${number} es un número par`;
 	} else {
-		message = `${number} <b>no</b> es un número par`;
+		message = `${number} es un número impar`;
 	}
 	
 	document.getElementById("demo").innerHTML += `${message}<br>`;
-}
+};
