@@ -12,4 +12,8 @@
     <li><a href="{{ site.baseurl | escape }}{{ url.path | escape }}">{{ url.path | escape }}</a> </li>
     {% endfor %}
   </ul>
+  {% for q in site.html_pages %}
+- {{ q.url }}
+{% endfor %}
+  
 </body>
