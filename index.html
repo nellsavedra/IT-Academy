@@ -10,7 +10,7 @@
   <ul>
     {% assign posts = site.static_files | where:"name","index.html" %}
     {% for url in posts %}
-    <li><a href="{{ site.baseurl | escape }}{{ url.path | escape }}">{{ url.path | escape }}</a> </li>
+    <li><a href="{{ site.baseurl | escape }}{{ url.path | escape }}">{{ url.path | escape | remove: "index.html" }}</a> </li>
     {% endfor %}
   </ul>
 </body>
