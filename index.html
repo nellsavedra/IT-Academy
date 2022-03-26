@@ -8,12 +8,8 @@
 <body>
   <h1>Index of /</h1>
   <ul>
-    {% for url in site.html_pages %}
+    {% for url in site.static_files | where:"name","index.html"  %}
     <li><a href="{{ site.baseurl | escape }}{{ url.path | escape }}">{{ url.path | escape }}</a> </li>
     {% endfor %}
   </ul>
-  {% for q in site.html_pages %}
-- {{ q.url }}
-{% endfor %}
-  
 </body>
