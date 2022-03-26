@@ -14,11 +14,41 @@
 
 let main = () => {
 	
+	document.getElementById("demo").innerHTML = "";
+	
 	let input = getInput("caracter","numero");
+	
+	drawOut(input);
 	
 };
 
 let getInput = (a,b) => {
 	
+	let caracter = document.getElementById(a).value;
+	let numero = Number(document.getElementById(b).value);
+	
+	return [caracter, numero];
 	
 };
+
+let drawOut = (a) => {
+	
+	let caracter = a[0];
+	let numero = a[1];
+	
+	let i = 0;
+	let x = 0;
+	let row = "";
+	while(i < numero) {
+		row += caracter;
+		i++;
+		if(i == numero) {
+			while(x < numero) {
+				document.getElementById("demo").innerHTML += `${row}<br>`;
+				x++;
+			}
+		}
+	}
+	
+	
+}
