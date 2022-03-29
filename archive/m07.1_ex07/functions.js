@@ -24,8 +24,8 @@ let main = () => {
 
 let getInput = (a,b) => {
 	
-	let caracter = document.getElementById(a).value;
-	let numero = Number(document.getElementById(b).value);
+	let caracter = document.getElementById(a).value,
+		numero = Number(document.getElementById(b).value);
 	
 	return [caracter, numero];
 	
@@ -33,22 +33,16 @@ let getInput = (a,b) => {
 
 let drawOut = (a) => {
 	
-	let caracter = a[0];
-	let numero = a[1];
-	
-	let i = 0;
-	let x = 0;
-	let row = "";
-	while(i < numero) {
-		row += caracter;
-		i++;
-		if(i == numero) {
-			while(x < numero) {
-				document.getElementById("demo").innerHTML += `${row}<br>`;
-				x++;
+	let caracter = a[0],
+		numero = a[1],
+		row = "";
+		
+		for(let i = 0; i < numero; i++) {
+			for(let x = 0; x < numero; x++) {
+				row += caracter;
 			}
+			row += "<br>"
 		}
-	}
-	
-	
+		
+	document.getElementById("demo").innerHTML = `${row}`;
 }

@@ -3,7 +3,7 @@
 
 let main = () => {
 	
-	let hasNegative = checkNumbers("numero1","numero2");
+	let hasNegative = getNumbers("numero1","numero2");
 	
 	let message = resultMessage(hasNegative);
 	
@@ -11,15 +11,17 @@ let main = () => {
 	
 };
 
-let checkNumbers = (a,b) => {
+let getNumbers = (a,b) => {
 	
 	let hasNegative = 0;
 	let num1 = Number(document.getElementById(a).value);
 	let num2 = Number(document.getElementById(b).value);
 	
-	if(num1 < 0 && num2 >= 0) {
-		hasNegative = 1;
-	} else if(num1 >= 0 && num2 < 0) {
+	// Otro metodo
+	// let oneIsNegative = num1 * num2;
+	// hasNegative = (oneIsNegative < 0) ? 1 : 0;
+	
+	if((num1 < 0 && num2 >= 0) || (num1 >= 0 && num2 < 0)) {
 		hasNegative = 1;
 	} else if (num1 < 0 && num2 < 0) {
 		hasNegative = 2;
@@ -42,6 +44,6 @@ let resultMessage = (a) => {
 		case 2:
 			message = `Los dos números son negativos`;
 	}
-	return message;
 	
+	return message;
 };

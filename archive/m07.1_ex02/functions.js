@@ -18,6 +18,7 @@ let main = () => {
 };
 
 let getMedia = (a) => {
+	// To do: ¿acortar esta función?
 	let sumaNotasAlumnos = 0;
 	let contador = 0;
 	
@@ -26,7 +27,7 @@ let getMedia = (a) => {
 		let notasAlumnos = Number(prompt("Introducir nota del alumno, 0-10"));
 		if(notasAlumnos < 0 || notasAlumnos > 10) {
 			window.alert("Introduce una nota valida");
-			continue;
+			continue; // To do: esto no haría falta
 		}
 		sumaNotasAlumnos += notasAlumnos;
 		contador++;
@@ -39,7 +40,7 @@ let getMedia = (a) => {
 
 let getMessage = (a) => {
 	
-	let message;
+	let message = "";
 	
 	if(a < 5) {
 		message =

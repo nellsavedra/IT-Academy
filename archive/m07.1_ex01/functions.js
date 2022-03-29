@@ -24,6 +24,7 @@ let getMedia = (...arr) => {
 	}
 
 	// Calculamos la media
+	// To do: podemos pasar esto a otra función
 	let mediaNotas = (totalNotas / arrSize).toFixed(2);
 
 	return mediaNotas;

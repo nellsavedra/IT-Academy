@@ -14,24 +14,31 @@
 "use strict";
 
 let main = () => {
-	
+	// Reiniciamos el DOM
 	document.getElementById("demo").innerHTML = "";
 	
-	let number = getNumber("numero");
-	if(number) { generarTabla(number); } else { return; }
+	// Obtenemos el numero para generar la tabla
+	let userNumber = getNumber("numero");
+	
+	// Generamos la tabla SOLO si el número es del 1 al 10
+	if(userNumber) { 
+		generarTabla(userNumber); 
+	} else { 
+		return; 
+	}
 	
 };
 
 let getNumber = (a) => {
 	
-	let number = Number(document.getElementById(a).value);
+	let userNumber = Number(document.getElementById(a).value);
 	
-	if(number <= 0 || number > 10) {
+	if(userNumber <= 0 || userNumber > 10) {
 		alert("Tiene que ser un número del 1 al 10");
 		return false;
 	}
 	
-	return number;
+	return userNumber;
 	
 };
 
@@ -39,7 +46,7 @@ let generarTabla = (a) => {
 	
 	let counter = 1;
 	while(counter <= 10) {
-		document.getElementById("demo").innerHTML += `${a} x ${counter} = ${a * counter}<br>`;
+		document.getElementById("demo").innerHTML += `${a} &times; ${counter} = ${a * counter}<br>`;
 		counter++;
 	}
 	
