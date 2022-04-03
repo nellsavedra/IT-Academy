@@ -7,6 +7,11 @@ let main = () => {
 	
 	let userNumber = Number(document.getElementById("numero").value);
 	
+	if(isNaN(userNumber) || userNumber <= 0) {
+		document.getElementById("demo").innerHTML ="Introduce un número entero no negativo valido ";
+		return;
+	}
+	
 	document.getElementById("demo").innerHTML = `El factorial de ${userNumber} es: ${factorial(userNumber)}`
 	
 };

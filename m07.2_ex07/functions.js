@@ -3,21 +3,13 @@
 
 let main = () => {
 	let userYear = Number(document.getElementById("numero").value),
-		isLeapYear = isLeapYearCheck(userYear),
-		message = "";
+		isLeapYear = isLeapYearCheck(userYear);
 
-	if (userYear < 1582) {
-		alert("Introduce un año posterior a 1582");
+	if (isNaN(userYear) || userYear < 1582) {
+		document.getElementById("demo").innerHTML = `Introduce un año posterior a 1582 ⚠️`;
 		return;
 	}
-
-	if (isLeapYear) {
-		message = `👏🏽 El año ${userYear} es bisiesto`;
-	} else {
-		message = `👎🏽 El año ${userYear} no bisiesto`;
-	}
-
-	document.getElementById("demo").innerHTML = message;
+	document.getElementById("demo").innerHTML = getMessage(userYear, isLeapYear);
 };
 
 let isLeapYearCheck = (year) => {
@@ -25,4 +17,13 @@ let isLeapYearCheck = (year) => {
 		return true;
 	}
 	return false;
+};
+
+let getMessage = (userYear, isBool) => {
+	if (isBool) {
+		message = `El año ${userYear} es bisiesto 🥳`;
+	} else {
+		message = `El año ${userYear} no bisiesto 😢`;
+	}
+	return message;
 };

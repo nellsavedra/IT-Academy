@@ -7,30 +7,20 @@
 "use strict";
 
 let main = () => {
-	
-	let userNumber = Number(document.getElementById("numero").value),
-		fibonacci = getFibonacci(userNumber);
-	
-	document.getElementById("demo").innerHTML = fibonacci.join(" ");
-		
-}
+	document.getElementById("demo").innerHTML = getFibonacci(Number(document.getElementById("numero").value));
+};
 
 let getFibonacci = (num) => {
-	
-	let n1 = 0, 
-		n2 = 1, 
+	let n1 = 0,
+		n2 = 1,
 		siguiente,
-		i = 0,
-		result = [];
-		
-	while(i < num) {
-		result.push(n1);
+		result = 0;
+
+	for (let i = 1; i < num; i++) {
 		siguiente = n1 + n2;
 		n1 = n2;
 		n2 = siguiente;
-		i++;
+		result += " " + n1;
 	}
-	
 	return result;
-	
-}
+};

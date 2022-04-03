@@ -30,29 +30,29 @@
 
 let main = () => {
 
+	document.getElementById("demo").innerHTML =
 	getDraw(Number(document.getElementById("numero").value), "*");
 	
 };
 
 let getDraw = (num, char) => {
-	let counter = num,
-		caracter = char,
-		row = [],
-		i = 0;
 	
-	while (i < counter) {
-		row.push(caracter);
-		document.getElementById("demo").innerHTML += `${row.join("")}<br>`;
-		i++;
-		
-		if (i == counter) {
-			let x = 0;
-			
-			while (x < counter) {
-				row.shift();
-				document.getElementById("demo").innerHTML += `${row.join("")}<br>`;
-				x++;
-			}
+	let message = "";
+	
+	for(let i = 0; i < num; i++) {
+		for(let j = 0; j <= i; j++ ) {
+			message += `${char}`;
 		}
+		message += `<br>`;
 	}
+	
+	for (let i = 1; i <= num; i++) {
+		for (let j = num; j > i; j--) {
+			message += `${char}`;
+		}
+		message += `<br>`;
+	}
+	
+	return message;
+	
 };
