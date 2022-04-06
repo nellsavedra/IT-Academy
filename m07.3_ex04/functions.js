@@ -5,16 +5,16 @@
 
 let main = () => {
 	const letrasDNI = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
-
+	
 	let userDNI = Number(document.getElementById("numero").value),
 		userDNIRemainder = userDNI % 23,
 		letrasDNILength = letrasDNI.length;
-
+		
 	if (isNaN(userDNI) || userDNI.toString().length < 8) {
 		document.getElementById("demo").innerHTML = `Introduce un número de DNI correcto ⚠️`;
 		return;
 	}
-
+	
 	for (let i = 0; i <= letrasDNILength; i++) {
 		if (userDNIRemainder === i) {
 			document.getElementById("demo").innerHTML = `${userDNI}${letrasDNI[i]}`;
