@@ -2,7 +2,7 @@
 
 class Tools {
 	constructor(){}
-
+	
 	printToPage(string) {
 		document.getElementById("demo").innerHTML = string;
 	}

@@ -18,48 +18,68 @@
 // Un cop introduïdes les dades dels dos ordinadors, crida als mètodes de la classe Ordinador per comprovar que funcionen correctament.
 "use strict";
 
-let tools = new Tools();
-
-const ORDENADORES = [];
-
-let brand, model, proc, ram, ssd;
-
-let crearOrdinadors = () => {
-	brand = prompt("Introduce la marca");
-	model = prompt("Introduce el modelo");
-	proc = prompt("Introduce el procesador");
-	ram = prompt("Introduce la memoria ram");
-	ssd = prompt("Introduce el almacenamiento");
-
-	let ordenador = new Ordinador(brand, model, proc, ram, ssd);
-
-	ORDENADORES.push(ordenador);
-	
-	mostrarOrdinadors();
-};
-
-let mostrarOrdinadors = () => {
-	
-	if(ORDENADORES.length === 0) {
-		tools.printToPage("Lo sentimos no hay articulos registrados");
-		return;
+class Ordinador {
+	constructor(brand, model, proc, ram, ssd) {
+		this._brand = brand;
+		this._model = model;
+		this._proc = proc;
+		this._ram = ram;
+		this._ssd = ssd;
 	}
-	
-	let result = "";
-	for (let i = 0; i < ORDENADORES.length; i++) {
-		result += ORDENADORES[i].productDesc("<br>");
+l
+	get brand() {
+		return this._brand;
 	}
 
-	tools.printToPage(result);
-};
+	get model() {
+		return this._model;
+	}
 
-let clearPage = () => {
-	tools.clearPage();
-};
+	get proc() {
+		return this._proc;
+	}
 
-let borrarItem = () => {
+	get ram() {
+		return this._ram;
+	}
+
+	get ssd() {
+		return this._ssd;
+	}
+
+	set brand(brand) {
+		this._brand = brand;
+	}
+
+	set model(model) {
+		this._model = model;
+	}
+
+	set proc(proc) {
+		this._proc = proc;
+	}
+
+	set ram(ram) {
+		this._ram = ram;
+	}
+
+	set ssd(ssd) {
+		this._ssd = ssd;
+	}
 	
-	ORDENADORES.pop();
-	
-	mostrarOrdinadors();
+	appInExec(app) {
+		return `En aquests moments s\'està executant: ${app}`;
+	}
+
+	productDesc(separator = "") {
+		let desc = `
+		
+		Marca: ${this.brand} ${separator}
+		Modelo: ${this.model} ${separator}
+		Procesador: ${this.proc} ${separator}
+		Memoria: ${this.ram} ${separator}
+		SSD: ${this.ssd} ${separator}
+		`
+		return desc;
+	}
 }

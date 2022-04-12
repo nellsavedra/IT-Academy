@@ -18,69 +18,50 @@
 // Un cop introduïdes les dades dels dos ordinadors, crida als mètodes de la classe Ordinador per comprovar que funcionen correctament.
 "use strict";
 
-class Ordinador {
-	constructor(brand, model, proc, ram, ssd) {
-		this._brand = brand;
-		this._model = model;
-		this._proc = proc;
-		this._ram = ram;
-		this._ssd = ssd;
-	}
+let tools = new Tools();
 
-	get brand() {
-		return this._brand;
-	}
+const ORDENADORES = [];
 
-	get model() {
-		return this._model;
-	}
+let brand, model, proc, ram, ssd;
 
-	get proc() {
-		return this._proc;
-	}
+let crearOrdinadors = () => {
+	brand = prompt("Introduce la marca");
+	model = prompt("Introduce el modelo");
+	proc = prompt("Introduce el procesador");
+	ram = prompt("Introduce la memoria ram");
+	ssd = prompt("Introduce el almacenamiento");
 
-	get ram() {
-		return this._ram;
-	}
+	let ordenador = new Ordinador(brand, model, proc, ram, ssd);
 
-	get ssd() {
-		return this._ssd;
-	}
+	ORDENADORES.push(ordenador);
+	
+	mostrarOrdinadors();
+};
 
-	set brand(brand) {
-		this._brand = brand;
-	}
-
-	set model(model) {
-		this._model = model;
-	}
-
-	set proc(proc) {
-		this._proc = proc;
-	}
-
-	set ram(ram) {
-		this._ram = ram;
-	}
-
-	set ssd(ssd) {
-		this._ssd = ssd;
+let mostrarOrdinadors = () => {
+	
+	if(ORDENADORES.length === 0) {
+		tools.printToPage("Lo sentimos, no hay articulos registrados");
+		return;
 	}
 	
-	appInExec(app) {
-		return `En aquests moments s\'està executant: ${app}`;
+	let result = "";
+	for (let i = 0; i < ORDENADORES.length; i++) {
+		if(i > 0) {result += "<br>";}
+		result += ORDENADORES[i].productDesc("<br>");
 	}
 
-	productDesc(separator = "") {
-		let desc = `
-		
-		Marca: ${this.brand} ${separator}
-		Modelo: ${this.model} ${separator}
-		Procesador: ${this.proc} ${separator}
-		Memoria: ${this.ram} ${separator}
-		SSD: ${this.ssd} ${separator}
-		${separator}
-		`
-		return desc;
-	}
+	tools.printToPage(result);
+};
+
+let clearPage = () => {
+	tools.clearPage();
+};
+
+let borrarItem = () => {
+	
+	ORDENADORES.pop();
+	
+	mostrarOrdinadors();
 }
+
