@@ -49,8 +49,6 @@ class Hotel {
 		this._imageURL = imageURL;
 	}
 	
-	
-
 	calcMaintenance() {
 		const SERVICE_SALARY = 1500;
 
@@ -68,10 +66,9 @@ class Hotel {
 		<b>Habitaciones:</b> ${this.roomsNumber}<br>
 		<b>Plantas:</b> ${this.floorsNumber}<br>
 		<b>Superficie:</b> ${this.totalArea} m² <br>
-		<b>Mantenimiento:</b> ${this.calcMaintenance()}
+		<b>Mantenimiento:</b>
+		${this.calcMaintenance()}
 		`;
-		
 		return desc;
-		
 	}
 }

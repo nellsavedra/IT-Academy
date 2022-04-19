@@ -4,9 +4,9 @@ const HOTELES = [];
 
 let newHotelName, roomsNumber, floorsNumber, totalArea;
 
-let newHotel = () => {
+const newHotel = () => {
 	
-	newHotelName 		= document.getElementById("search").value;
+	newHotelName 	= document.getElementById("search").value;
 	if (newHotelName == "" || newHotelName == " ") {
 		Tools.showNotification(`Introduzca un nombre para el hotel`);
 		return;
@@ -17,6 +17,7 @@ let newHotel = () => {
 			return;
 		}
 	}
+	
 	roomsNumber 	= prompt("Introduce el numero de habitaciones");
 	floorsNumber	= prompt("Introduce el numero de plantas");
 	totalArea		= prompt("Introduce la superficie total del hotel");
@@ -26,11 +27,13 @@ let newHotel = () => {
 	HOTELES.push(hotel);
 	
 	Tools.printToPage(hotel.hotelDesc(Tools.delButton(HOTELES.length - 1), Tools.modButton(HOTELES.length - 1)));
+	
 	Tools.clearPage("notifications");
-	console.clear();console.table(HOTELES);
+	document.getElementById("search").value = "";
+	// console.clear();console.table(HOTELES);
 }
 
-let viewHotel = () => {
+const viewHotel = () => {
 	
 	Tools.clearPage("notifications");
 	
@@ -46,26 +49,28 @@ let viewHotel = () => {
 			return;	
 		}
 	}
+	
 	result = `Lo sentimos, el hotel no está registrado en la app`;
 	Tools.clearPage("demo");
 	Tools.showNotification(result);
 }
 
-let modHotel = (num) => {
+const modHotel = (num) => {
 	
 	HOTELES[num].roomsNumber 	= prompt("Introduce el numero de habitaciones");
 	HOTELES[num].floorsNumber	= prompt("Introduce el numero de plantas");
 	HOTELES[num].totalArea		= prompt("Introduce la superficie total del hotel");
 	
 	Tools.printToPage(HOTELES[num].hotelDesc(Tools.delButton(num),Tools.modButton(num)));
-	console.clear();console.table(HOTELES);
+	// console.clear();console.table(HOTELES);
 }
 
-let deleteHotel = (num) => {
+const deleteHotel = (num) => {
 	
 	Tools.showNotification(`${HOTELES[num].hotelName}, borrado correctamente`);
 	Tools.clearPage("demo");
+	
 	HOTELES.splice(num,1);
-	console.clear();console.table(HOTELES);
+	// console.clear();console.table(HOTELES);
 	
 }
