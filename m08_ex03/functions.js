@@ -17,8 +17,10 @@ const registerCliente = () => {
 	CLIENTES.push(cliente);
 
 	domResults.innerHTML += cliente.clienteDescDiv(CLIENTES.length - 1);
+	
 	document.getElementById("firstname").value = "";
 	document.getElementById("lastname").value = "";
+	// console.table(CLIENTES);
 }
 
 // const showClientes = () => {
@@ -39,14 +41,17 @@ const crearCuenta = (index) => {
 	let cuenta = new Cuenta();
 	CLIENTES[index].clienteCuenta = cuenta.numCuenta;
 	CLIENTES[index] = ([CLIENTES[index],cuenta]);
+	
 	document.getElementById(`element-${index}`).innerHTML = CLIENTES[index][0].clienteDesc(index, CLIENTES[index][1].cuentaDesc());
 	document.getElementById(`element-${index}`).classList.add("cuenta-activa");
+	// console.table(CLIENTES);
 }
 
 const deleteCliente = (index) => {
 	
 	CLIENTES.splice(index, 1, "");
 	document.getElementById(`element-${index}`).remove();
+	// console.table(CLIENTES);
 	
 }
 

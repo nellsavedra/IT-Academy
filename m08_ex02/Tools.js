@@ -21,11 +21,11 @@ class Tools {
 	}
 	
 	static delButton(num) {
-		return `<button class="ms-3 btn btn-danger btn-sm" onclick="deleteHotel(${num})"><i class="bi bi-trash"></i> Borrar</button>`
+		return `<button class="shadow-sm align-top btn btn-danger btn-sm" onclick="deleteHotel(${num})"><i class="bi bi-trash"></i> Borrar</button>`
 	}
 	
 	static modButton(num) {
-		return `<button class="ms-3 btn btn-primary btn-sm" onclick="modHotel(${num})"><i class="bi bi-pencil-square"></i> Modificar</button>`
+		return `<button class="shadow-sm ms-2 align-top btn btn-warning btn-sm" onclick="modHotel(${num})"><i class="bi bi-pencil-square"></i> Modificar</button>`
 	}
 	
 	static randomImage() {
@@ -38,7 +38,6 @@ class Tools {
 		"https://live.staticflickr.com/3312/3654914519_5e62756454_k.jpg",	
 		"https://live.staticflickr.com/4624/39220005375_4604d8a57b_k.jpg",	
 		"https://live.staticflickr.com/4607/40162094421_a25c2fbc2a_b.jpg",	
-		"https://live.staticflickr.com/4808/39862505793_396785cc41_b.jpg",	
 		"https://live.staticflickr.com/4010/4680742522_70523293d5_b.jpg",	
 		];
 		

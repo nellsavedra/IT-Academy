@@ -18,9 +18,9 @@ const newHotel = () => {
 		}
 	}
 	
-	roomsNumber 	= prompt("Introduce el numero de habitaciones");
-	floorsNumber	= prompt("Introduce el numero de plantas");
-	totalArea		= prompt("Introduce la superficie total del hotel");
+	roomsNumber 	= Number(prompt("Introduce el numero de habitaciones"));
+	floorsNumber	= Number(prompt("Introduce el numero de plantas"));
+	totalArea		= Number(prompt("Introduce la superficie total del hotel"));
 	
 	let hotel = new Hotel(newHotelName, roomsNumber, floorsNumber, totalArea, Tools.randomImage());
 	
@@ -30,7 +30,7 @@ const newHotel = () => {
 	
 	Tools.clearPage("notifications");
 	document.getElementById("search").value = "";
-	// console.clear();console.table(HOTELES);
+	// console.table(HOTELES);
 }
 
 const viewHotel = () => {
@@ -38,6 +38,10 @@ const viewHotel = () => {
 	Tools.clearPage("notifications");
 	
 	let userHotel = document.getElementById("search").value.toLowerCase();
+	if (userHotel == "" || userHotel== " ") {
+		Tools.showNotification(`Introduzca un nombre para buscar`);
+		return;
+	}
 	// console.log(userHotel);
 	
 	let result = "";
@@ -49,7 +53,6 @@ const viewHotel = () => {
 			return;	
 		}
 	}
-	
 	result = `Lo sentimos, el hotel no está registrado en la app`;
 	Tools.clearPage("demo");
 	Tools.showNotification(result);
@@ -62,7 +65,7 @@ const modHotel = (num) => {
 	HOTELES[num].totalArea		= prompt("Introduce la superficie total del hotel");
 	
 	Tools.printToPage(HOTELES[num].hotelDesc(Tools.delButton(num),Tools.modButton(num)));
-	// console.clear();console.table(HOTELES);
+	// console.table(HOTELES);
 }
 
 const deleteHotel = (num) => {
@@ -71,6 +74,5 @@ const deleteHotel = (num) => {
 	Tools.clearPage("demo");
 	
 	HOTELES.splice(num,1);
-	// console.clear();console.table(HOTELES);
-	
+	// console.table(HOTELES);
 }

@@ -1,5 +1,6 @@
 "use strict";
 
+// Formatear cantidades en EUR
 const formatEUR = new Intl.NumberFormat("es-ES", {style:"currency", currency:"EUR"})
 
 class Cuenta {
