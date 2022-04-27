@@ -1,6 +1,6 @@
 "use strict";
 
-const CLIENTES = [], CUENTAS = [];
+const CLIENTES = [];
 
 const domResults = document.getElementById("results");
 
@@ -52,7 +52,6 @@ const deleteCliente = (index) => {
 	CLIENTES.splice(index, 1, "");
 	document.getElementById(`element-${index}`).remove();
 	// console.table(CLIENTES);
-	
 }
 
 const ingresarCuenta = (index) => {

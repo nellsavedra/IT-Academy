@@ -6,7 +6,7 @@ const formatEUR = new Intl.NumberFormat("es-ES", {style:"currency", currency:"EU
 class Cuenta {
 	static counter = Math.floor(Math.random() * 1000000);
 	
-	constructor( saldo = 0 ) {
+	constructor(saldo = 0) {
 		this._numCuenta = "IT-0000013" + "01" + Cuenta.counter++;
 		this._saldo = saldo;
 	}
