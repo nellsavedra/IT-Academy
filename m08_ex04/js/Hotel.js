@@ -19,7 +19,7 @@ class Hotel extends Building {
 	toDOM() {
 		return `
 		<div id="element-${this.license}" class="position-relative text-start p-3 border shadow-sm rounded-3 mb-3">
-		<span class="position-absolute top-0 end-0 p-3">🏨</span>
+		<span class="pe-none position-absolute top-0 end-0 p-3">🏨</span>
 		<details>
 		<summary>
 		${this.constructor.name} ${this.name} - Licencia nº ${this.license} 

@@ -19,14 +19,16 @@ class Cinema extends Building {
 	toDOM() {
 		return `
 		<div id="element-${this.license}" class="position-relative text-start p-3 border shadow-sm rounded-3 mb-3">
-		<span class="position-absolute top-0 end-0 p-3">🍿</span>
+		<span class="pe-none position-absolute top-0 end-0 p-3">🍿</span>
 		<details>
 		<summary>
 		${this.constructor.name} ${this.name} - Licencia nº ${this.license} 
 		</summary>
 		<p>${this.constructor.name} ${this.name} de ${this.area} m², ${this.floors} plantas y un aforo de ${this.capacity} personas.</p>
 		<p>${this.calcSurveillance()}</p>
-		<button class="btn btn-outline-danger btn-sm" onclick="deleteBuilding(${this.license})">Eliminar</button>
+		<ol id="movie-session-${this.license}"></ol>
+		<button class="btn btn-outline-primary btn-sm" onclick="doMovieSession(${this.license})">Sesión</button>
+		<button class="ms-2 btn btn-outline-danger btn-sm" onclick="deleteBuilding(${this.license})">Eliminar</button>
 		</details>
 		</div>
 		`
@@ -35,7 +37,8 @@ class Cinema extends Building {
 	// Al cinema es crearà la funció projectarSessio(), que mostrarà el missatge “S’han recaptat xxx.xx euros”, tenint en compte que, per calcular la recaptació, s’ha de multiplicar el preu d’una entrada pel número d’assistents a la sessió, que no podrà superar l’aforament màxim. Per tant, la funció projectarSessió haurà de rebre com a paràmetres el número d’assistents i el preu de l’entrada per aquella sessió. El número d’assistents a la sessió no pot ser més gran que l’aforament total de la sala.
 	movieSession(attendees, ticketPrice) {
 		if (attendees > this.capacity) {
-			return `Esta sesión supera el aforo permitido.`;
+			alert(`Esta sesión supera el aforo permitido.`);
+			return
 		}
 		let collected = attendees * ticketPrice;
 

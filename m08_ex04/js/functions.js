@@ -36,6 +36,22 @@ const createCinema = () => {
 	console.table(BUILDINGS);
 }
 
+const doMovieSession = (license) => {
+	
+	let cinema 		= BUILDINGS.find(c => c.license === license);
+		
+	let attendees 	= prompt("Número de asistentes a la pelicula"),
+		ticketPrice = prompt("Precio de la entrada"),
+		collected 	= cinema.movieSession(attendees, ticketPrice);
+	
+	if(collected == null) {
+			return
+	}
+	
+	collected = `<li>${collected}</li>`;
+	cinema.printToPage(`movie-session-${cinema.license}`, collected);
+}
+
 const createHotel = () => {
 	//name, floors, area, rooms
 	let name 		= prompt("Nombre del hotel"),
@@ -58,6 +74,8 @@ const deleteBuilding = (license) => {
 	
 	let buildingIndex 	= BUILDINGS.findIndex(b => b.license === license),
 		building 		= BUILDINGS.find(b => b.license === license);
+		
+	// To do: @here validacion en caso de no encontrar coincidencias
 	
 	building.removeFromPage(`element-${building.license}`);
 	
