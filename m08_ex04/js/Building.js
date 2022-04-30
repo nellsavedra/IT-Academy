@@ -59,3 +59,4 @@ class Building {
 		return `La seguridad del ${this.constructor.name} ${this.name} consta de ${guards} vigilantes, el coste mensual estimado es de ${monthlyCost.toFixed(2)} €`;
 	}
 }
+
