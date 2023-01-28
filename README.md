@@ -5,4 +5,4 @@ En este repositorio guardo todos los ejercicios resueltos del itinerario **Funda
 
 # Ejercicios
 Si necesitas ejecutar los ejercicios, puedes hacerlo desde la página de GitHub Pages del repositorio.
-[https://nellsavedra.github.io/it-academy-fdlp/](https://nellsavedra.github.io/it-academy-fdlp/)
+[https://nellsavedra.github.io/JavaScript-ES6-Fundamentals/](https://nellsavedra.github.io/JavaScript-ES6-Fundamentals/)
